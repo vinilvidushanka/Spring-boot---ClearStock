@@ -15,11 +15,11 @@
         <h2 class="title">Sign in</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Username" />
+          <input type="text"  placeholder="Username" />
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password"  placeholder="Password" />
         </div>
         <input type="submit" value="Login" class="btn solid" />
         <p class="social-text">Or Sign in with social platforms</p>
@@ -38,19 +38,19 @@
           </a>
         </div>
       </form>
-      <form action="#" class="sign-up-form">
+      <form id="userForm" action="#" class="sign-up-form">
         <h2 class="title">Sign up</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Username" />
+          <input type="text" id="username" placeholder="Username" />
         </div>
         <div class="input-field">
           <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" />
+          <input type="email" id="email" placeholder="Email" />
         </div>
         <div class="input-field">
           <i class="fas fa-user-tag"></i>
-          <select>
+          <select id="role">
             <option value="" disabled selected>Choose Role</option>
             <option value="user">User</option>
             <option value="designer">Designer</option>
@@ -58,9 +58,9 @@
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" id="password" placeholder="Password" />
         </div>
-        <input type="submit" class="btn" value="Sign up" />
+        <input type="submit" class="btn" id="saveBtn" value="Sign up" />
         <p class="social-text">Or Sign up with social platforms</p>
         <div class="social-media">
           <a href="#" class="social-icon">
@@ -114,5 +114,58 @@
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('userForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // saveUser();
+    });
+  });
+
+  $(document).ready(function () {
+    // fetchUsers();
+    $('#saveBtn').click(function () {
+      let username = $("#username").val().trim();
+      let email = $("#email").val().trim();
+      let password = $("#password").val().trim();
+      let role = $("#role").val().trim();
+
+      if (!username || !email || !password || !role) {
+        alert("All fields are required!");
+        return;
+      }
+
+      $.ajax({
+        url: "http://localhost:8080/api/v1/user/save",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+          "username": username,
+          "email": email,
+          "password": password,
+          "role": role
+        }),
+        success: (res) => {
+          console.log(res);
+          if (res.message === "Success") {
+            console.log("User Saved Successfully");
+            alert("User Saved Successfully");
+            // location.reload();
+            fetchUsers();
+          } else {
+            alert("Failed: " + (res.message || "Unknown error"));
+          }
+        },
+        error: (error) => {
+          console.error(error);
+          alert("Something went wrong");
+        }
+      });
+    });
+  });
+
+
+</script>
 </body>
 </html>
