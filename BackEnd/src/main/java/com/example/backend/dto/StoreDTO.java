@@ -1,5 +1,7 @@
 package com.example.backend.dto;
 
+import java.util.Arrays;
+
 public class StoreDTO {
     private int id;
     private String name;
@@ -10,10 +12,11 @@ public class StoreDTO {
     private double price;
     private int ownerId;
     private String imagePath;
+    private byte[] imageData;
 
     public StoreDTO() {}
 
-    public StoreDTO(int id, String name, String ownerEmail, String description, String categoryName, int categoryId, double price, int ownerId, String imagePath) {
+    public StoreDTO(int id, String name, String ownerEmail, String description, String categoryName, int categoryId, double price, int ownerId, String imagePath, byte[] imageData) {
         this.id = id;
         this.name = name;
         this.ownerEmail = ownerEmail;
@@ -23,9 +26,10 @@ public class StoreDTO {
         this.price = price;
         this.ownerId = ownerId;
         this.imagePath = imagePath;
+        this.imageData = imageData;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -97,6 +101,14 @@ public class StoreDTO {
         this.imagePath = imagePath;
     }
 
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
+
     @Override
     public String toString() {
         return "StoreDTO{" +
@@ -109,6 +121,7 @@ public class StoreDTO {
                 ", price=" + price +
                 ", ownerId=" + ownerId +
                 ", imagePath='" + imagePath + '\'' +
+                ", imageData=" + Arrays.toString(imageData) +
                 '}';
     }
 }

@@ -178,6 +178,199 @@ import java.util.List;
 //    }
 //}
 
+/*-----------------------------------------------*/
+//@RestController
+//@RequestMapping("api/v1/store")
+//@CrossOrigin("*")
+//public class StoreController {
+//
+//    @Autowired
+//    private StoreService storeService;
+//    @Autowired
+//    private StoreServiceImpl storeServiceImpl;
+//    @Autowired
+//    private UserServiceImpl userServiceImpl;
+//    @Autowired
+//    private CategoryServiceImpl categoryServiceImpl;
+//
+//    private static final Logger log = (Logger) LoggerFactory.getLogger(StoreController.class);
+//
+//    @Autowired
+//    public StoreController(@Lazy StoreService storeService, @Lazy StoreServiceImpl storeServiceImpl) {
+//        this.storeService = storeService;
+//        this.storeServiceImpl = storeServiceImpl;
+//    }
+//
+//    @PostMapping("/save")
+//    public ResponseEntity<ResponseDTO> save(@RequestParam("name") String name,
+//                                            @RequestParam("desc") String desc,
+//                                            @RequestParam("your-email") String email,
+//                                            @RequestParam("price") double price,
+//                                            @RequestParam("category") String category,
+//                                            @RequestParam("image") MultipartFile image) {
+//        // Save image to a directory
+//        String imageUrl = saveImage(image);
+//
+//        // Create StoreDTO
+//        StoreDTO storeDTO = new StoreDTO();
+//        storeDTO.setName(name);
+//        storeDTO.setDescription(desc);
+//        storeDTO.setOwnerEmail(email);
+//        storeDTO.setPrice(price);
+//        storeDTO.setCategoryName(category);
+//        storeDTO.setImagePath(imageUrl);
+//
+//        // Retrieve user and category information
+//        UserDTO userDTO = userServiceImpl.findUserByEmail(email);
+//        storeDTO.setOwnerId(userDTO.getId());
+//        CategoryDTO categoryDTO = categoryServiceImpl.findIdByName(category);
+//        storeDTO.setCategoryId(categoryDTO.getId());
+//
+//        // Save store
+//        try {
+//            storeService.save(storeDTO);
+//            log.info("Data saved successfully: " + storeDTO);
+//        } catch (Exception e) {
+//            log.error("Error saving data", e);
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .body(new ResponseDTO(VarList.OK, "Store Saved Successfully", null));
+//    }
+//
+//    private String saveImage(MultipartFile image) {
+//        if (image.isEmpty()) {
+//            return null;
+//        }
+//
+//        try {
+//            // Create directory to save the image
+//            String directoryPath = "uploads/";
+//            File directory = new File(directoryPath);
+//            if (!directory.exists()) {
+//                directory.mkdirs();
+//            }
+//
+//            // Save the image to the directory
+//            String imagePath = directoryPath + image.getOriginalFilename();
+//            Path path = Paths.get(imagePath);
+//            Files.write(path, image.getBytes());
+//
+//            return imagePath;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
+//
+//    @GetMapping("/getAll")
+//    public ResponseEntity<ResponseDTO> getAllImages() {
+//        List<StoreDTO> storeDTO = storeServiceImpl.getAllImages();
+//        for (StoreDTO store : storeDTO) {
+//            System.out.println(store.toString());
+//        }
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .body(new ResponseDTO(VarList.OK, "Image saved successfully", storeService.getAllImages()));
+//    }
+//}
+
+/*---------------------------------------*/
+//@RestController
+//@RequestMapping("api/v1/store")
+//@CrossOrigin("*")
+//public class StoreController {
+//
+//    @Autowired
+//    private StoreService storeService;
+//    @Autowired
+//    private StoreServiceImpl storeServiceImpl;
+//    @Autowired
+//    private UserServiceImpl userServiceImpl;
+//    @Autowired
+//    private CategoryServiceImpl categoryServiceImpl;
+//
+//    private static final Logger log = (Logger) LoggerFactory.getLogger(StoreController.class);
+//
+//    @Autowired
+//    public StoreController(@Lazy StoreService storeService, @Lazy StoreServiceImpl storeServiceImpl) {
+//        this.storeService = storeService;
+//        this.storeServiceImpl = storeServiceImpl;
+//    }
+//
+//    @PostMapping("/save")
+//    public ResponseEntity<ResponseDTO> save(@RequestParam("name") String name,
+//                                            @RequestParam("desc") String desc,
+//                                            @RequestParam("your-email") String email,
+//                                            @RequestParam("price") double price,
+//                                            @RequestParam("category") String category,
+//                                            @RequestParam("image") MultipartFile image) {
+//        // Save image to a directory
+//        String imageUrl = saveImage(image);
+//
+//        // Create StoreDTO
+//        StoreDTO storeDTO = new StoreDTO();
+//        storeDTO.setName(name);
+//        storeDTO.setDescription(desc);
+//        storeDTO.setOwnerEmail(email);
+//        storeDTO.setPrice(price);
+//        storeDTO.setCategoryName(category);
+//        storeDTO.setImagePath(imageUrl);
+//
+//        // Retrieve user and category information
+//        UserDTO userDTO = userServiceImpl.findUserByEmail(email);
+//        storeDTO.setOwnerId(userDTO.getId());
+//        CategoryDTO categoryDTO = categoryServiceImpl.findIdByName(category);
+//        storeDTO.setCategoryId(categoryDTO.getId());
+//
+//        // Save image data to the database
+//        try {
+//            storeDTO.setImageData(image.getBytes());
+//            storeService.save(storeDTO);
+//            System.out.println(storeDTO.toString());
+//            log.info("Data saved successfully: " + storeDTO);
+//        } catch (Exception e) {
+//            log.error("Error saving data", e);
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK)
+//                .body(new ResponseDTO(VarList.OK, "Store Saved Successfully", null));
+//    }
+//
+//    private String saveImage(MultipartFile image) {
+//        if (image.isEmpty()) {
+//            return null;
+//        }
+//
+//        try {
+//            // Create directory to save the image
+//            String directoryPath = "uploads/";
+//            File directory = new File(directoryPath);
+//            if (!directory.exists()) {
+//                directory.mkdirs();
+//            }
+//
+//            // Save the image to the directory
+//            String imagePath = directoryPath + image.getOriginalFilename();
+//            Path path = Paths.get(imagePath);
+//            Files.write(path, image.getBytes());
+//
+//            return imagePath;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
+//
+//    @GetMapping("/getAll")
+//    public ResponseEntity<ResponseDTO> getAllImages() {
+//       List<StoreDTO> storeDTO = storeServiceImpl.getAllImages();
+//       for (StoreDTO store : storeDTO) {
+//           System.out.println(store.toString());
+//       }
+//        return ResponseEntity.status(HttpStatus.OK)
+//               .body(new ResponseDTO(VarList.OK, "Image saved successfully", storeService.getAllImages()));}
+//}
+
 @RestController
 @RequestMapping("api/v1/store")
 @CrossOrigin("*")
@@ -217,18 +410,34 @@ public class StoreController {
         storeDTO.setOwnerEmail(email);
         storeDTO.setPrice(price);
         storeDTO.setCategoryName(category);
-        storeDTO.setImagePath(imageUrl);
+        storeDTO.setImagePath(imageUrl); // Save the image URL to the database
+
+        System.out.println("image ek save wenwd");
+        System.out.println(storeDTO.toString());
 
         // Retrieve user and category information
+//        UserDTO userDTO = userServiceImpl.findUserByEmail(email);
+//        storeDTO.setOwnerId(userDTO.getId());
+//        CategoryDTO categoryDTO = categoryServiceImpl.findIdByName(category);
+//        storeDTO.setCategoryId(categoryDTO.getId());
+
         UserDTO userDTO = userServiceImpl.findUserByEmail(email);
-        storeDTO.setOwnerId(userDTO.getId());
         CategoryDTO categoryDTO = categoryServiceImpl.findIdByName(category);
-        storeDTO.setCategoryId(categoryDTO.getId());
+
+        if (userDTO != null && categoryDTO != null) {
+            storeDTO.setOwnerId(userDTO.getId());
+            storeDTO.setCategoryId(categoryDTO.getId()); // Set the category ID
+        } else {
+            // Handle the case where user or category is not found
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ResponseDTO(400, "User or Category not found", null));
+        }
 
         // Save store
         try {
             storeService.save(storeDTO);
             log.info("Data saved successfully: " + storeDTO);
+            System.out.println("image ek save wenwd22222");
         } catch (Exception e) {
             log.error("Error saving data", e);
         }
@@ -255,7 +464,7 @@ public class StoreController {
             Path path = Paths.get(imagePath);
             Files.write(path, image.getBytes());
 
-            return imagePath;
+            return imagePath; // Return the image URL to be saved in the database
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -264,14 +473,19 @@ public class StoreController {
 
     @GetMapping("/getAll")
     public ResponseEntity<ResponseDTO> getAllImages() {
-        List<StoreDTO> storeDTO = storeServiceImpl.getAllImages();
-        for (StoreDTO store : storeDTO) {
-            System.out.println(store.toString());
-        }
+       List<StoreDTO> storeDTO = storeServiceImpl.getAllImages();
+       for (StoreDTO store : storeDTO) {
+           System.out.println(store.toString());
+       }
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseDTO(VarList.OK, "Image saved successfully", storeService.getAllImages()));
-    }
+               .body(new ResponseDTO(VarList.OK, "Image saved successfully", storeService.getAllImages()));}
 }
+
+
+/*------------------------------------*/
+
+
+
 
 // frontend to backend send image wth data ( no json, use form data )
 // before database ,save image anyware ( selfstudy)

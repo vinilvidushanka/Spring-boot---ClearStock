@@ -426,7 +426,7 @@
           <!-- Form Section -->
           <div class="card shadow-lg p-4 mb-4">
             <h2 class="text-center text-teal mb-4"><i data-feather="users"></i> Store Management</h2>
-            <form id="customerForm" class="row g-3">
+            <form id="imageForm" class="row g-3">
               <div class="col-md-6">
                 <label for="name" class="form-label fw-bold">Image Name</label>
                 <input type="text" class="form-control border-teal" id="name" name="name" required>
@@ -447,8 +447,8 @@
                 <label for="category" class="form-label fw-bold">Category</label>
                 <select class="form-select" id="category" name="category" required>
                   <option value="">Select Category</option>
-                  <option value="category1">wallpaper</option>
-                  <option value="category2">stock image</option>
+                  <option value="wallpaper">wallpaper</option>
+                  <option value="stock image">stock image</option>
                 </select>
               </div>
               <div class="col-12">
@@ -628,7 +628,7 @@
     }
   }
 
-  document.getElementById('customerForm').addEventListener('submit', function (e) {
+  document.getElementById('imageForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(this);
     if (currentImageUrl) {
@@ -654,7 +654,7 @@
   });
 
   function clearForm() {
-    document.getElementById('customerForm').reset();
+    document.getElementById('imageForm').reset();
     dropZone.innerHTML = `
       <i data-feather="upload-cloud" class="text-cyan"></i>
       <p class="mb-0">Drop your image here or click to browse</p>
@@ -693,7 +693,7 @@
         console.log(response);
       },
       error: function(error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching images:', error);
       }
     });
   }
