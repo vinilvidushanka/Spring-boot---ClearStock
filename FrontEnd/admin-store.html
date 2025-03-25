@@ -731,9 +731,10 @@
       success: function(response) {
         $('#imageTable').empty();
         response.data.forEach(store => {
+          const imageUrl = `http://localhost:8080/${store.imagePath}`;
           $('#imageTable').append(
             `<tr>
-              <td><img src="${store.imagePath}" alt="Image" style="max-height: 100px; max-width: 100%;"></td>
+              <td><img src="${imageUrl}" alt="Image" style="max-height: 100px; max-width: 100%;"></td>
               <td>${store.id}</td>
               <td>${store.name}</td>
               <td>${store.description}</td>
@@ -755,7 +756,7 @@
         console.log(response);
       },
       error: function(error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching images:', error);
       }
     });
   }
@@ -768,8 +769,8 @@
     document.getElementById('your-email').value = ownerEmail;
     document.getElementById('price').value = price;
     document.getElementById('category').value = categoryName;
-    dropZone.innerHTML = `<img src="${imagePath}" alt="Preview" style="max-height: 100px; max-width: 100%;"><p class="mb-0 mt-2">Click to change image</p>`;
-    currentImageUrl = imagePath;
+    dropZone.innerHTML = `<img src="http://localhost:8080/${imagePath}" alt="Preview" style="max-height: 100px; max-width: 100%;"><p class="mb-0 mt-2">Click to change image</p>`;
+    currentImageUrl = `http://localhost:8080/${imagePath}`;
   }
 
   function removeStore(id) {
