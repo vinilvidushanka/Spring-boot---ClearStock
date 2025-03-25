@@ -35,7 +35,6 @@ public class UserController {
     public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid UserDTO userDTO) {
         System.out.println(userDTO.getEmail());
         userService.save(userDTO);
-        System.out.println("save wenwd");
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseDTO(VarList.OK, "User Saved Successfully", null));
     }

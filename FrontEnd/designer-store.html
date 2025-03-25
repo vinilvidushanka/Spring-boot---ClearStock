@@ -27,6 +27,8 @@
   <!-- Background remover CSS File -->
   <link href="assets/css/backgroundRemover.css" rel="stylesheet">
 
+  <link href="assets/css/imageCard.css" rel="stylesheet">
+
 </head>
 
 <body class="service-details-page">
@@ -40,12 +42,12 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="/designer-home.html">Home</a></li>
-        <li><a href="/designer-about.html">About</a></li>
-        <li><a href="/designer-removebg.html">Background Remover</a></li>
-        <li><a href="/designer-service.html">Services</a></li>
-        <li><a href="/designer-store.html">Store</a></li>
-        <li><a href="/designer-contact.html">Contact</a></li>
+        <li><a href="designer-home.html">Home</a></li>
+        <li><a href="designer-about.html">About</a></li>
+        <li><a href="designer-removebg.html">Background Remover</a></li>
+        <li><a href="designer-service.html">Services</a></li>
+        <li><a href="designer-store.html">Store</a></li>
+        <li><a href="designer-contact.html">Contact</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
@@ -81,10 +83,8 @@
                 <input type="text" class="form-control border-teal" id="desc" required>
               </div>
               <div class="col-md-4">
-                <label for="designer" class="form-label fw-bold">Designer</label>
-                <select class="form-select" id="designer" required>
-                  <option value="">Select Designer</option>
-                </select>
+                <label for="your-email" class="form-label fw-bold">Your Email</label>
+                <input type="text" class="form-control border-teal" id="your-email" required>
               </div>
               <div class="col-md-4">
                 <label for="price" class="form-label fw-bold">Price</label>
@@ -126,7 +126,9 @@
                   <th>ID</th>
                   <th>Name</th>
                   <th>Description</th>
+                  <th>E mail</th>
                   <th>Price</th>
+                  <th>Category</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
@@ -170,7 +172,7 @@
 
         <div class="tab-pane fade active show" id="features-tab-1">
           <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+            <!--<div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
               <h3>Voluptatem dignissimos provident</h3>
               <p class="fst-italic">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -184,7 +186,10 @@
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
               <img src="assets/img/features-illustration-1.webp" alt="" class="img-fluid">
-            </div>
+            </div>-->
+            <ul class="product-list">
+              <!-- Products will be inserted here dynamically -->
+            </ul>
           </div>
         </div><!-- End tab content item -->
 
@@ -363,6 +368,52 @@
                 `;
     }
   }
+
+  function fetchProducts() {
+    $.ajax({
+      url: '/api/v1/store/getAll',  // API endpoint (Spring Boot Controller)
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        let productList = $('.product-list');
+        productList.empty(); // Clear existing products
+
+        if (data.length === 0) {
+          productList.append('<p>No products found.</p>');
+          return;
+        }
+
+        data.forEach(item => {
+          let productItem = `
+                        <li class="product-item">
+                            <div class="product-card">
+                                <figure class="card-banner">
+                                    <img src="./images/${item.url}" alt="${item.name}">
+                                </figure>
+                                <div class="card-content">
+                                    <div class="card-cat">${item.description}</div>
+                                    <h3 class="card-title">${item.name}</h3>
+                                    <data class="card-price">$${item.price}</data>
+                                    <br>
+                                    <button class="card-action-btn">
+                                        🛒 Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </li>`;
+          productList.append(productItem);
+        });
+      },
+      error: function (xhr, status, error) {
+        console.error('Error fetching products:', error);
+      }
+    });
+  }
+
+  // Load products when page is ready
+  $(document).ready(function () {
+    fetchProducts();
+  });
 </script>
 
 </body>

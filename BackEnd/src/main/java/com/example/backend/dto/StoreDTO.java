@@ -25,7 +25,7 @@ public class StoreDTO {
         this.imagePath = imagePath;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
