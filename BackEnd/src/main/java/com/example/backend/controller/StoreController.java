@@ -473,12 +473,15 @@ public class StoreController {
 
     @GetMapping("/getAll")
     public ResponseEntity<ResponseDTO> getAllImages() {
-       List<StoreDTO> storeDTO = storeServiceImpl.getAllImages();
-       for (StoreDTO store : storeDTO) {
-           System.out.println(store.toString());
-       }
+        List<StoreDTO> storeDTO = storeServiceImpl.getAllImages();
+        for (StoreDTO store : storeDTO) {
+            System.out.println(store.toString());
+        }
         return ResponseEntity.status(HttpStatus.OK)
-               .body(new ResponseDTO(VarList.OK, "Image saved successfully", storeService.getAllImages()));}
+                .body(new ResponseDTO(VarList.OK, "Images retrieved successfully", storeService.getAllImages()));
+    }
+
+
 }
 
 
