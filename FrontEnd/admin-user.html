@@ -308,37 +308,33 @@
   }
 
 
-  // function editUser(/*id,*/ username, password, email, role) {
-  //   console.log("clicked update button");
-  //   console.log(/*id,*/ username, password, email, role);
-  //   // document.getElementById('id').value = id;
-  //   document.getElementById('username').value = username;
-  //   document.getElementById('password').value = password;
-  //   document.getElementById('email').value = email;
-  //   document.getElementById('role').value = role;
-  //   // document.getElementById('id').disabled = true;
-  //   isEditing = true;
-  //   currentEditId = id;
-  //   document.getElementById('saveBtn').innerHTML = '<i class="bi bi-check-circle me-2"></i>Update User';
-  //
-  //
-  // }
-  //
-  // function removeUser(id,) {
-  //   if (confirm('Are you sure you want to delete this user?')) {
-  //     $.ajax({
-  //       url: 'http://localhost:8080/api/v1/user/delete?id='+id,
-  //       method: 'DELETE',
-  //       success: function(response) {
-  //         fetchUsers();
-  //         console.log('User deleted successfully:', response);
-  //       },
-  //       error: function(error) {
-  //         console.error('Error deleting user:', error);
-  //       }
-  //     })
-  //   }
-  // }
+  function editUser(id, username, password, email, role) {
+    console.log("clicked update button");
+    console.log(id, username, password, email, role);
+    document.getElementById('username').value = username;
+    document.getElementById('password').value = password;
+    document.getElementById('email').value = email;
+    document.getElementById('role').value = role;
+    isEditing = true;
+    currentEditId = id;
+    document.getElementById('saveBtn').innerHTML = '<i class="bi bi-check-circle me-2"></i>Update User';
+  }
+
+  function removeUser(id) {
+    if (confirm('Are you sure you want to delete this user?')) {
+      $.ajax({
+        url: 'http://localhost:8080/api/v1/user/delete?id=' + id,
+        method: 'DELETE',
+        success: function(response) {
+          fetchUsers();
+          console.log('User deleted successfully:', response);
+        },
+        error: function(error) {
+          console.error('Error deleting user:', error);
+        }
+      })
+    }
+  }
 
   function clearForm() {
     document.getElementById('userForm').reset();
