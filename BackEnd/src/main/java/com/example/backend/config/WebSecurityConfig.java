@@ -135,6 +135,10 @@ public class WebSecurityConfig {
                                 "/api/v1/store/delete/{id}",
                                 "/api/v1/store/update/{id}",
                                 "/api/v1/store/getAll",
+                                "/api/v1/stock-image/save",
+                                "/api/v1/stock-image/delete/{id}",
+                                "/api/v1/stock-image/update/{id}",
+                                "/api/v1/stock-image/getAll",
                                 "/uploads/**", // Allow access to uploads directory
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",

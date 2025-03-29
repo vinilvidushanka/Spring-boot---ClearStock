@@ -8,6 +8,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -25,6 +26,7 @@
 
   <!-- Background remover CSS File -->
   <link href="assets/css/backgroundRemover.css" rel="stylesheet">
+
 
 </head>
 
@@ -57,103 +59,55 @@
 
 <main class="main">
 
-  <section id="contact" class="contact section light-background">
+  <!-- Features Section -->
+  <section id="features" class="features section">
 
-    <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Contact</h2>
+      <h2>Stock Images</h2>
       <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
     </div><!-- End Section Title -->
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container">
 
-      <div class="row g-4 g-lg-5">
-        <div class="col-lg-5">
-          <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-            <h3>Contact Info</h3>
-            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
-
-            <div class="info-item" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon-box">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <div class="content">
-                <h4>Our Location</h4>
-                <p>A108 Adam Street</p>
-                <p>New York, NY 535022</p>
-              </div>
-            </div>
-
-            <div class="info-item" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon-box">
-                <i class="bi bi-telephone"></i>
-              </div>
-              <div class="content">
-                <h4>Phone Number</h4>
-                <p>+1 5589 55488 55</p>
-                <p>+1 6678 254445 41</p>
-              </div>
-            </div>
-
-            <div class="info-item" data-aos="fade-up" data-aos-delay="500">
-              <div class="icon-box">
-                <i class="bi bi-envelope"></i>
-              </div>
-              <div class="content">
-                <h4>Email Address</h4>
-                <p>info@example.com</p>
-                <p>contact@example.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-            <h3>Get In Touch</h3>
-            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
-
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit" class="btn">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-
-          </div>
-        </div>
-
+      <div class="row" id="imageCardsContainer">
+        <!-- Image cards will be inserted here dynamically -->
       </div>
+
 
     </div>
 
-  </section><!-- /Contact Section -->
-
+  </section><!-- /Features Section -->
 
 </main>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentModalLabel">Complete Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="paymentForm">
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" required>
+          </div>
+          <div class="mb-3">
+            <label for="expiryDate" class="form-label">Expiry Date</label>
+            <input type="text" class="form-control" id="expiryDate" required>
+          </div>
+          <div class="mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cvv" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Pay</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer id="footer" class="footer">
 
@@ -199,7 +153,6 @@
         </ul>
       </div>
 
-
     </div>
   </div>
 
@@ -228,6 +181,56 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="assets/js/backgroundremover.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    fetchImages();
+
+    function fetchImages() {
+      $.ajax({
+        url: 'http://localhost:8080/api/v1/stock-image/getAll',
+        method: 'GET',
+        success: function(response) {
+          const imageCardsContainer = $('#imageCardsContainer');
+          imageCardsContainer.empty();
+          response.data.forEach(stockImage => {
+            const imageUrl = `${stockImage.imagePath}`;
+            console.log(imageUrl)
+            const imageCard = `
+              <div class="col-lg-4 col-md-6">
+                <div class="card mb-4 shadow-sm">
+                  <img src="../${imageUrl}" class="card-img-top" alt="${stockImage.name}">
+                  <div class="card-body">
+                    <h5 class="card-title">${stockImage.name}</h5>
+                    <p class="card-text">${stockImage.description}</p>
+                    <p class="card-text"><strong>Price:</strong> $${stockImage.price}</p>
+                    <button class="btn btn-primary" onclick="openPaymentModal('${imageUrl}')">Download</button>
+                  </div>
+                </div>
+              </div>
+            `;
+            imageCardsContainer.append(imageCard);
+          });
+        },
+        error: function(error) {
+          console.error('Error fetching images:', error);
+        }
+      });
+    }
+  });
+
+  function openPaymentModal(imageUrl) {
+    $('#paymentModal').modal('show');
+    $('#paymentForm').off('submit').on('submit', function(event) {
+      event.preventDefault();
+      // Handle payment processing here
+      alert('Payment successful! Downloading image...');
+      window.location.href = imageUrl;
+      $('#paymentModal').modal('hide');
+    });
+  }
+</script>
 
 </body>
 
