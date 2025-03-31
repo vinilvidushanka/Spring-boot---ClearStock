@@ -115,31 +115,48 @@ public class WebSecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+//    @Bean
+//    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        return http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers(
+//                                "/api/v1/auth/authenticate",
+//                                "/api/v1/user/save",
+//                                "/api/v1/auth/refreshToken",
+//                                "/api/v1/user/delete/{id}",
+//                                "/api/v1/user/update/{id}",
+//                                "/api/v1/user/getAll",
+//                                "/api/v1/category/save",
+//                                "/api/v1/category/delete/{id}",
+//                                "/api/v1/category/update/{id}",
+//                                "/api/v1/category/getAll",
+//                                "/api/v1/store/save",
+//                                "/api/v1/store/delete/{id}",
+//                                "/api/v1/store/update/{id}",
+//                                "/api/v1/store/getAll",
+//                                "/api/v1/stock-image/save",
+//                                "/api/v1/stock-image/delete/{id}",
+//                                "/api/v1/stock-image/update/{id}",
+//                                "/api/v1/stock-image/getAll",
+//                                "/uploads/**", // Allow access to uploads directory
+//                                "/v3/api-docs/**",
+//                                "/swagger-ui/**",
+//                                "/swagger-ui.html").permitAll()
+//                        .anyRequest().authenticated()
+//                )
+//                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+//                .build();
+//    }
+
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/api/v1/auth/authenticate",
-                                "/api/v1/user/save",
-                                "/api/v1/auth/refreshToken",
-                                "/api/v1/user/delete/{id}",
-                                "/api/v1/user/update/{id}",
-                                "/api/v1/user/getAll",
-                                "/api/v1/category/save",
-                                "/api/v1/category/delete/{id}",
-                                "/api/v1/category/update/{id}",
-                                "/api/v1/category/getAll",
-                                "/api/v1/store/save",
-                                "/api/v1/store/delete/{id}",
-                                "/api/v1/store/update/{id}",
-                                "/api/v1/store/getAll",
-                                "/api/v1/stock-image/save",
-                                "/api/v1/stock-image/delete/{id}",
-                                "/api/v1/stock-image/update/{id}",
-                                "/api/v1/stock-image/getAll",
-                                "/uploads/**", // Allow access to uploads directory
+                                "/api/v1/**",
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html").permitAll()
