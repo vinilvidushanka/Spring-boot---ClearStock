@@ -55,4 +55,11 @@ public class UserController {
         return new ResponseUtil(201, "User updated successfully", null);
 
     }
+
+    @DeleteMapping(path = "/delete")
+    public ResponseEntity<ResponseDTO> deleteUser(@RequestParam int id) {
+        userService.deleteUser(id);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseDTO(VarList.OK, "User Deleted Successfully", null));
+    }
 }

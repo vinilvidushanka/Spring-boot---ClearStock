@@ -37,7 +37,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public void deleteUser(int id) {
-
+        if (userRepo.existsById(id)) {
+            userRepo.deleteById(id);
+        } else {
+            throw new RuntimeException("User not found");
+        }
     }
 
     @Override
@@ -75,4 +79,5 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         User user = userRepo.findByEmail(username);
         return modelMapper.map(user,UserDTO.class);
     }
+
 }
