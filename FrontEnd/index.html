@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/assets/css/login.css" />
 </head>
 <body>
-<div class="container">
+<!--<div class="container">
   <div class="forms-container">
     <div class="signin-signup">
       <form action="#" class="sign-in-form">
@@ -78,7 +78,80 @@
         </div>
       </form>
     </div>
+  </div>-->
+
+<div class="container">
+  <div class="forms-container">
+    <div class="signin-signup">
+      <form action="#" class="sign-in-form">
+        <h2 class="title">Sign in</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Username" autocomplete="username" />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" autocomplete="current-password" />
+        </div>
+        <input type="submit" value="Login" class="btn solid" />
+        <p class="social-text">Or Sign in with social platforms</p>
+        <div class="social-media">
+          <a href="home.html" class="social-icon">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="designer-home.html" class="social-icon">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="admin-home.html" class="social-icon">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a href="#" class="social-icon">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </div>
+      </form>
+      <form id="userForm" action="#" class="sign-up-form">
+        <h2 class="title">Sign up</h2>
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" placeholder="Username" autocomplete="username" />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email" autocomplete="email" />
+        </div>
+        <div class="input-field">
+          <i class="fas fa-user-tag"></i>
+          <select id="role" autocomplete="role">
+            <option value="" disabled selected>Choose Role</option>
+            <option value="user">User</option>
+            <option value="designer">Designer</option>
+          </select>
+        </div>
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" autocomplete="new-password" />
+        </div>
+        <input type="submit" class="btn" id="saveBtn" value="Sign up" />
+        <p class="social-text">Or Sign up with social platforms</p>
+        <div class="social-media">
+          <a href="#" class="social-icon">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="#" class="social-icon">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="#" class="social-icon">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a href="#" class="social-icon">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </div>
+      </form>
+    </div>
   </div>
+
 
   <div class="panels-container">
     <div class="panel left-panel">

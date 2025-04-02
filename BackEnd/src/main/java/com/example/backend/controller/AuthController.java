@@ -1,3 +1,4 @@
+/*
 package com.example.backend.controller;
 
 import com.example.backend.dto.AuthDTO;
@@ -57,5 +58,36 @@ public class AuthController {
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ResponseDTO(VarList.Created, "Success", authDTO));
+    }
+}
+*/
+
+
+package com.example.backend.controller;
+
+import com.example.backend.dto.LoginRequest;
+import com.example.backend.dto.RegisterRequest;
+import com.example.backend.dto.ResponseDTO;
+import com.example.backend.service.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "*")
+public class AuthController {
+
+    @Autowired
+    private AuthService authService;
+
+    @PostMapping("/login")
+    public ResponseEntity<ResponseDTO> login(@RequestBody LoginRequest loginRequest) {
+        return (ResponseEntity<ResponseDTO>) authService.login(loginRequest);
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest) {
+        return authService.register(registerRequest);
     }
 }
