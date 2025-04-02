@@ -89,6 +89,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <img id="paymentImage" src="../${imageUrl}" alt="Selected Image" class="img-fluid">
+          </div>
+          <div class="col-6">
+            <p id="paymentPrice"></p>
+          </div>
+        </div>
         <form id="paymentForm">
           <div class="mb-3">
             <label for="cardNumber" class="form-label">Card Number</label>
@@ -196,7 +204,6 @@
           imageCardsContainer.empty();
           response.data.forEach(store => {
             const imageUrl = `${store.imagePath}`;
-            console.log(imageUrl)
             const imageCard = `
               <div class="col-lg-4 col-md-6">
                 <div class="card mb-4 shadow-sm">
@@ -205,7 +212,7 @@
                     <h5 class="card-title">${store.name}</h5>
                     <p class="card-text">${store.description}</p>
                     <p class="card-text"><strong>Price:</strong> $${store.price}</p>
-                    <button class="btn btn-primary" onclick="openPaymentModal('${imageUrl}')">Download</button>
+                    <button class="btn btn-primary" onclick="openPaymentModal('${imageUrl}', '${store.price}')">Download</button>
                   </div>
                 </div>
               </div>
@@ -220,8 +227,10 @@
     }
   });
 
-  function openPaymentModal(imageUrl) {
+  function openPaymentModal(imageUrl, price) {
     $('#paymentModal').modal('show');
+    $('#paymentImage').attr('src', imageUrl);
+    $('#paymentPrice').text(`Price: $${price}`);
     $('#paymentForm').off('submit').on('submit', function(event) {
       event.preventDefault();
       // Handle payment processing here

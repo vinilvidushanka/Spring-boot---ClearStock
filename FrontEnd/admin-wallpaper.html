@@ -268,7 +268,7 @@
     }
 
     $.ajax({
-      url: 'http://localhost:8080/api/v1/stock-image/save',
+      url: 'http://localhost:8080/api/v1/wallpaper/save',
       method: 'POST',
       data: formData,
       processData: false,
@@ -296,24 +296,24 @@
 
   function fetchImages() {
     $.ajax({
-      url: 'http://localhost:8080/api/v1/stock-image/getAll',
+      url: 'http://localhost:8080/api/v1/wallpaper/getAll',
       method: 'GET',
       success: function(response) {
         $('#imageTable').empty();
-        response.data.forEach(stockImage => {
-          const imageUrl = `http://localhost:8080/${stockImage.imagePath}`;
+        response.data.forEach(wallpaper => {
+          const imageUrl = `http://localhost:8080/${wallpaper.imagePath}`;
           $('#imageTable').append(
             `<tr>
               <td><img src="../${imageUrl}" alt="Image" style="max-height: 100px; max-width: 100%;"></td>
-              <td>${stockImage.id}</td>
-              <td>${stockImage.name}</td>
-              <td>${stockImage.description}</td>
-              <td>${stockImage.price}</td>
+              <td>${wallpaper.id}</td>
+              <td>${wallpaper.name}</td>
+              <td>${wallpaper.description}</td>
+              <td>${wallpaper.price}</td>
               <td>
-                <button class="btn btn-sm btn-outline-primary" onclick="editStockImage('${stockImage.imagePath}', '${stockImage.id}', '${stockImage.name}', '${stockImage.description}', '${stockImage.price}')">
+                <button class="btn btn-sm btn-outline-primary" onclick="editWallpaper('${wallpaper.imagePath}', '${wallpaper.id}', '${wallpaper.name}', '${wallpaper.description}', '${wallpaper.price}')">
                   <i class="bi bi-pencil"></i>
                 </button>
-                <button class="btn btn-sm btn-outline-danger" onclick="removeStockImage('${stockImage.id}')">
+                <button class="btn btn-sm btn-outline-danger" onclick="removeWallpaper('${wallpaper.id}')">
                   <i class="bi bi-trash"></i>
                 </button>
               </td>
@@ -329,7 +329,7 @@
     });
   }
 
-  function editStockImage(imagePath, id, name, description, price) {
+  function editWallpaper(imagePath, id, name, description, price) {
     isEditing = true;
     currentEditId = id;
     document.getElementById('name').value = name;
@@ -339,9 +339,9 @@
     currentImageUrl = `http://localhost:8080/${imagePath}`;
   }
 
-  function removeStockImage(id) {
+  function removeWallpaper(id) {
     $.ajax({
-      url: `http://localhost:8080/api/v1/stock-image/delete/${id}`,
+      url: `http://localhost:8080/api/v1/wallpaper/delete/${id}`,
       method: 'DELETE',
       success: function(response) {
         alert('Store deleted successfully');
