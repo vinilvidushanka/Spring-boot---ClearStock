@@ -39,9 +39,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public void deleteUser(String userName) {
-        if (userRepo.existsByEmail(userName)) {
-            userRepo.deleteByEmail(userName);
+    public void deleteUser(String email) {
+        if (userRepo.existsByEmail(email)) {
+            userRepo.deleteByEmail(email);
         } else {
             throw new RuntimeException("User not found");
         }
