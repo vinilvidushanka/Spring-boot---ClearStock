@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserDetailsService, UserService {
@@ -24,7 +23,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public void save(UserDTO userDTO) {
-        if (userRepo.existsById(userDTO.getId())) {
+        if (userRepo.existsByEmail(userDTO.getEmail())) {
             throw new RuntimeException("User already exists");
         }
         userRepo.save(modelMapper.map(userDTO, User.class));
@@ -36,9 +35,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public void deleteUser(int id) {
-        if (userRepo.existsById(id)) {
-            userRepo.deleteById(id);
+    public void deleteUser(String userName) {
+        if (userRepo.existsByEmail(userName)) {
+            userRepo.deleteByEmail(userName);
         } else {
             throw new RuntimeException("User not found");
         }
@@ -47,8 +46,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Override
     public void updateUser(UserDTO userDTO) {
         try {
-            Optional<User> optionalUser = userRepo.findById(userDTO.getId());
-            if (optionalUser.isPresent()) {
+            User user = userRepo.findByEmail(userDTO.getEmail());
+            if (user != null) {
                 userRepo.save(modelMapper.map(userDTO, User.class));
                 throw new RuntimeException("User updated successfully");
             } else {
@@ -63,12 +62,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     public UserDTO findUserByEmail(String email) {
         User user = userRepo.findByEmail(email);
         return modelMapper.map(user,UserDTO.class);
-    }
-
-    @Override
-    public UserDTO findUserById(int id) {
-        Optional<User> user = userRepo.findById(id);
-        return modelMapper.map(user.get(),UserDTO.class);
     }
 
     public UserDetails loadUserByUsername(String email) {

@@ -57,8 +57,8 @@ public class UserController {
     }
 
     @DeleteMapping(path = "/delete")
-    public ResponseEntity<ResponseDTO> deleteUser(@RequestParam int id) {
-        userService.deleteUser(id);
+    public ResponseEntity<ResponseDTO> deleteUser(@RequestParam String email) {
+        userService.deleteUser(email);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseDTO(VarList.OK, "User Deleted Successfully", null));
     }

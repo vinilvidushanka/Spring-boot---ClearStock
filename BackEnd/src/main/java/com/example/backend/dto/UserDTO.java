@@ -2,7 +2,7 @@ package com.example.backend.dto;
 
 public class UserDTO {
     private int id;
-    private String username;
+//    private String username;
     private String password;
     private String email;
     private String role;
@@ -12,7 +12,7 @@ public class UserDTO {
 
     public UserDTO(int id, String username, String password, String email, String role) {
         this.id = id;
-        this.username = username;
+//        this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
@@ -26,13 +26,13 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getUsername() {
+/*    public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
+    }*/
 
     public String getPassword() {
         return password;
@@ -62,7 +62,6 @@ public class UserDTO {
     public String toString() {
         return "UserDTO{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +

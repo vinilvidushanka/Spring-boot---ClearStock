@@ -2,9 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.*;
 import com.example.backend.service.StockImageService;
-import com.example.backend.service.StoreService;
 import com.example.backend.service.impl.StockImageServiceImpl;
-import com.example.backend.service.impl.StoreServiceImpl;
 import com.example.backend.util.VarList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

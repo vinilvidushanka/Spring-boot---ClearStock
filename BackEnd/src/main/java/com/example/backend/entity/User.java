@@ -1,5 +1,6 @@
 package com.example.backend.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -10,8 +11,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private int id;
-    private String username;
+//    private String username;
     private String password;
+    @Column(unique = true)
     private String email;
     private String role;
 
@@ -20,7 +22,7 @@ public class User {
 
     public User(int id, String username, String password, String email, String role) {
         this.id = id;
-        this.username = username;
+//        this.username = username;
         this.password = password;
         this.email = email;
         this.role = role;
@@ -34,13 +36,13 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
+  /*  public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String name) {
+        this.username = name;
+    }*/
 
     public String getPassword() {
         return password;
@@ -71,7 +73,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +

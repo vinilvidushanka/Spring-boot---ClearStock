@@ -87,13 +87,13 @@
         <h2 class="title">Sign in</h2>
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Username" autocomplete="username" />
+          <input type="email" id="emailSignIn" placeholder="e mail" autocomplete="email" />
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" autocomplete="current-password" />
+          <input type="password" id="passwordSignIn" placeholder="Password" autocomplete="current-password" />
         </div>
-        <input type="submit" value="Login" class="btn solid" />
+        <button type="button" value="Login" id="btn-login2" class="btn solid">Login</button>
         <p class="social-text">Or Sign in with social platforms</p>
         <div class="social-media">
           <a href="home.html" class="social-icon">
@@ -183,11 +183,11 @@
   </div>
 </div>
 
-<script src="/assets/js/login.js"></script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/login.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('userForm').addEventListener('submit', function (e) {
@@ -237,6 +237,33 @@
       });
     });
   });
+
+/*  $("#btn-login2").click(function () {
+    $.ajax({
+      url: "http://localhost:8080/api/v1/auth/authenticate",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({
+        "email": $("#emailSignIn").val(),
+        "password": $("#passwordSignIn").val()
+      }),
+      success: (res) => {
+        console.log(res.data.token);
+        window.localStorage.setItem("token", res.data.token);
+        if (res.message === "Success") {
+          window.location.href = "index.html";
+          console.log("Login successful");
+          alert("Login successful");
+        } else {
+          alert("Failed: " + (res.message || "Unknown error"));
+        }
+      },
+      error: (error) => {
+        console.error(error);
+        alert("Something went wrong");
+      }
+    });
+  })*/
 
 
 </script>

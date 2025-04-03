@@ -1,9 +1,7 @@
 package com.example.backend.service.impl;
 
 import com.example.backend.dto.StockImageDTO;
-import com.example.backend.dto.StoreDTO;
 import com.example.backend.entity.StockImage;
-import com.example.backend.entity.Store;
 import com.example.backend.repo.StockImageRepo;
 import com.example.backend.service.StockImageService;
 import org.modelmapper.ModelMapper;
