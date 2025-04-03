@@ -42,7 +42,7 @@ function submitHandler() {
     });
 }
 
-function downloadFile() {
+/*function downloadFile() {
   if (!imageURL) {
     alert('No processed image available to download.');
     return;
@@ -55,3 +55,16 @@ function downloadFile() {
   a.click();
   document.body.removeChild(a);
 }
+
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
+
+sign_up_btn.addEventListener("click", () => {
+  container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+});*/
+
