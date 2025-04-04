@@ -36,14 +36,6 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
-    /*@PostMapping(path = "/save")
-    public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid UserDTO userDTO) {
-        System.out.println(userDTO.getEmail());
-        userService.save(userDTO);
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseDTO(VarList.OK, "User Saved Successfully", null));
-    }*/
-
     @PostMapping(path = "/save")
     public ResponseEntity<ResponseDTO> saveUser(@RequestBody @Valid UserDTO userDTO) {
         System.out.println(userDTO.getEmail());
@@ -83,11 +75,14 @@ public class UserController {
 
     }
 
-    @DeleteMapping(value = "/delete/{email}")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public ResponseEntity<ResponseDTO> deleteUser(@RequestParam String email) {
-        userService.deleteUser(email);
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseDTO(VarList.OK, "User Deleted Successfully", null));
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteUser(@RequestParam int id) {
+        boolean deleted = userService.deleteUser(id);
+        if (deleted) {
+            return ResponseEntity.ok("User deleted successfully");
+        } else {
+            return ResponseEntity.status(404).body("User not found");
+        }
     }
+
 }

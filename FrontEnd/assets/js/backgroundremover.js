@@ -42,7 +42,8 @@ function submitHandler() {
     });
 }
 
-/*function downloadFile() {
+
+function downloadFile() {
   if (!imageURL) {
     alert('No processed image available to download.');
     return;
@@ -66,5 +67,5 @@ sign_up_btn.addEventListener("click", () => {
 
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
-});*/
+});
 

@@ -9,7 +9,9 @@ public interface UserService {
     void save (UserDTO userDTO);
     List<User> getAllUsers();
 
-    void deleteUser(String userName);
+//    void deleteUser(String email);
+
+    boolean deleteUser(int id);
 
     void updateUser(UserDTO userDTO);
 

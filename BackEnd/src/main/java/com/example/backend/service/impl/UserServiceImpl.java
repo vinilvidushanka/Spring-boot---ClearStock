@@ -38,14 +38,35 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         return userRepo.findAll();
     }
 
-    @Override
+//    @Override
+//    public void deleteUser(String email) {
+//        if (userRepo.existsByEmail(email)) {
+//            userRepo.deleteByEmail(email);
+//            throw new RuntimeException("User deleted successfully");
+//        } else {
+//            throw new RuntimeException("User not found");
+//        }
+//    }
+
+    /*@Override
     public void deleteUser(String email) {
         if (userRepo.existsByEmail(email)) {
             userRepo.deleteByEmail(email);
         } else {
             throw new RuntimeException("User not found");
         }
+    }*/
+
+    @Override
+    public boolean deleteUser(int id) {
+        if (userRepo.existsById(id)) {
+            userRepo.deleteById(id);
+            return true;
+        }
+        return false;
     }
+
+
 
     @Override
     public void updateUser(UserDTO userDTO) {
