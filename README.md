@@ -39,3 +39,7 @@ To run the this system locally, follow these steps:
 3. Compile and run the backend Spring application.
 4. Open the frontend files in a web browser to access the POS system.
 
+## Youtube link:
+
+-https://youtu.be/3EISSGCV4C0?si=WPYi1uk8hDkPIJVR
+
