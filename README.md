@@ -37,7 +37,7 @@ To run the this system locally, follow these steps:
 1. Clone this repository to your local machine.
 2. Set up the MySQL database and configure the connection details in the backend.
 3. Compile and run the backend Spring application.
-4. Open the frontend files in a web browser to access the POS system.
+4. Open the frontend files in a web browser to access the spring boot project.
 
 ## Youtube link:
 
