@@ -12,7 +12,7 @@ Welcome to the clesrStock repository for the IJSE 2nd Semester Final Project.
 ## Stock Images Page:
 ![image alt](https://github.com/vinilvidushanka/Spring-boot---ClearStock/blob/1766eb8b4e10d21302e2708e900f6f1a99259198/FrontEnd/assets/img/homr/Screenshot%20(89).png)
 ## Wallpaper Page:
-![image alt](https://github.com/vinilvidushanka/Spring-boot---ClearStock/blob/1766eb8b4e10d21302e2708e900f6f1a99259198/FrontEnd/assets/img/homr/Screenshot%20(90).png)
+![image alt](https://github.com/vinilvidushanka/Spring-boot---ClearStock/blob/e19f88b7219fe481720c935d991166dc6fc84e43/FrontEnd/assets/img/homr/Screenshot%20(92).png)
 
 
 ## Technologies Used:
