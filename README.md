@@ -1,7 +1,7 @@
 
 # IJSE 2nd Semester Final Project: clearStock-wallpaper,stock images downloading and image background remover website
 
-Welcome to the clesrStock repository for the IJSE 2nd Semester Final Project.
+Welcome to the clesrStock repository for the IJSE-GDSE70 2nd Semester Final Project.
 
 # Screenshots
 
