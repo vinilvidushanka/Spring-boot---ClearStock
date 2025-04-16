@@ -44,9 +44,9 @@
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="admin-home.html" class="active">Home</a></li>
-        <li><a href="admin-category.html">Category</a></li>
-        <li><a href="admin-store.html">Wallpapers</a></li>
-        <li><a href="designer-service.html">Payment</a></li>
+        <li><a href="admin-stockImage.html">Stock Image</a></li>
+        <li><a href="admin-wallpaper.html">Wallpapers</a></li>
+        <li><a href="admin-payment.html">Payment</a></li>
         <li><a href="admin-user.html">Users</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -63,7 +63,7 @@
   <section id="about" class="about section">
 
     <div class="container section-title" data-aos="fade-up">
-      <h2>Category</h2>
+      <h2>Payment</h2>
       <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
     </div><!-- End Section Title -->
 
@@ -71,7 +71,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
           <!-- Form Section -->
-          <div class="card shadow-lg p-4 mb-4">
+          <!--<div class="card shadow-lg p-4 mb-4">
             <h2 class="text-center text-teal mb-4"><i data-feather="users"></i> Category Management</h2>
             <form id="categoryForm" class="row g-3">
               <div class="col-md-6">
@@ -91,18 +91,20 @@
                 </button>
               </div>
             </form>
-          </div>
+          </div>-->
 
           <!-- Table Section -->
           <div class="card shadow-lg p-4">
-            <h3 class="mb-4"><i data-feather="list"></i> Category List</h3>
+            <h3 class="mb-4"><i data-feather="list"></i> Payment List</h3>
             <div class="table-responsive">
               <table class="table table-striped table-bordered align-middle">
                 <thead>
                 <tr>
-                  <th>Category ID</th>
-                  <th>Category name</th>
-                  <th>Actions</th>
+                  <th>ID</th>
+                  <th>Image ID</th>
+                  <th>Price</th>
+                  <th>Date</th>
+                  <th>Card Number</th>
                 </tr>
                 </thead>
                 <tbody id="categoryTable"></tbody>
