@@ -6,7 +6,7 @@ Welcome to the clesrStock repository for the IJSE 2nd Semester Final Project.
 # Screenshots
 
 ## Background Remover:
-![image alt](https://github.com/vinilvidushanka/Image-background-remover/blob/c24396e417ef6773d48d3e19cd4bb20611060c2f/Screenshot%20(87).png)
+![image alt](https://github.com/vinilvidushanka/Spring-boot---ClearStock/blob/5249a3ee43962558fb7843fc2f0a3cda8ae55982/FrontEnd/assets/img/homr/Screenshot%20(93).png)
 ## Home Page:
 ![image alt](https://github.com/vinilvidushanka/Spring-boot---ClearStock/blob/1766eb8b4e10d21302e2708e900f6f1a99259198/FrontEnd/assets/img/homr/Screenshot%20(91).png)
 ## Stock Images Page:
