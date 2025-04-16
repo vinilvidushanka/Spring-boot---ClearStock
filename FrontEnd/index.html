@@ -188,60 +188,6 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/login.js"></script>
-<script>
-  /*document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('userForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      $("#emailSignIn").val("");
-      $("#passwordSignIn").val("");
-      // saveUser();
-    });
-  });
 
-  $(document).ready(function () {
-    // fetchUsers();
-    $('#saveBtn').click(function () {
-      let username = $("#username").val().trim();
-      let email = $("#email").val().trim();
-      let password = $("#password").val().trim();
-      let role = $("#role").val().trim();
-
-      if (!username || !email || !password || !role) {
-        alert("All fields are required!");
-        return;
-      }
-
-      $.ajax({
-        url: "http://localhost:8080/api/v1/user/save",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({
-          "username": username,
-          "email": email,
-          "password": password,
-          "role": role
-        }),
-        success: (res) => {
-          console.log(res);
-          if (res.message === "Success") {
-            console.log("User Saved Successfully");
-            alert("User Saved Successfully");
-            // location.reload();
-            fetchUsers();
-          } else {
-            alert("Failed: " + (res.message || "Unknown error"));
-          }
-        },
-        error: (error) => {
-          console.error(error);
-          alert("Something went wrong");
-        }
-      });
-    });
-  });*/
-
-
-
-</script>
 </body>
 </html>
